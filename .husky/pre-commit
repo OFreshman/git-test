@@ -1,0 +1,9 @@
+# 检查 core.ignorecase 是否为 false
+ignorecase=$(git config core.ignorecase)
+
+if [ "$ignorecase" != "false" ]; then
+  echo "警告：Git 配置 core.ignorecase 不为 false!"
+  echo "请运行以下命令进行设置："
+  echo "  git config --local core.ignorecase false"
+  exit 1
+fi
